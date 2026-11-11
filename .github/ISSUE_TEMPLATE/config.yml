@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Remnashop blacklist (основной реестр)
+    url: https://github.com/remnashop/blacklist
+    about: Полный публичный реестр ID и email с формой заявки и автоматической сборкой

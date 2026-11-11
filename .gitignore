@@ -1,0 +1,15 @@
+# Держим только содержимое репозитория:
+# экспорт чата и скачанный чужой blacklist сюда не коммитятся.
+known_blacklist.txt
+chat_export/
+*.log
+
+__pycache__/
+*.py[cod]
+.venv/
+
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini

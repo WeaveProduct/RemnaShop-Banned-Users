@@ -1,0 +1,35 @@
+name: Оспорить запись
+description: Ваш Telegram ID попал в список по ошибке
+title: "[appeal] <telegram_id>"
+labels: ["appeal"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ошибки бывают: список собран из публичных сообщений участников чата.
+        Если ваш ID попал сюда несправедливо — напишите, что произошло на самом деле.
+
+  - type: input
+    id: telegram_id
+    attributes:
+      label: Telegram ID
+      description: Тот, что указан в `telegram_ids.csv`
+      placeholder: "7654321098"
+    validations:
+      required: true
+
+  - type: textarea
+    id: explanation
+    attributes:
+      label: Что не так с записью
+      placeholder: "Это не мой аккаунт / нас перепутали / причина не соответствует действительности"
+    validations:
+      required: true
+
+  - type: textarea
+    id: proof
+    attributes:
+      label: Подтверждение
+      description: Доказательства обратного — переписка, логи, что угодно проверяемое.
+    validations:
+      required: false
