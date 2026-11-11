@@ -7,7 +7,7 @@
 
 [![IDs](https://img.shields.io/badge/Telegram%20IDs-593-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](telegram_ids.csv)
 [![New](https://img.shields.io/badge/New-558-37D67A?style=for-the-badge)](telegram_ids.csv)
-[![Period](https://img.shields.io/badge/Aug%202026%20-%20Nov%202026-555?style=for-the-badge)](data/banned_users.json)
+[![Period](https://img.shields.io/badge/Aug%202026%20to%20Nov%202026-555?style=for-the-badge)](data/banned_users.json)
 [![License](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
 
 [**CSV**](telegram_ids.csv) · [Blacklist TXT](telegram_ids.txt) · [Расширенная таблица](banned_users.csv) · [JSON](data/banned_users.json)

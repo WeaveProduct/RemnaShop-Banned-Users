@@ -60,7 +60,7 @@ def main() -> None:
     mentions = sum(r["mentions"] for r in rows)
     dates = sorted(r["first_seen"] for r in rows if r["first_seen"])
     period = f"{short_date(dates[0])} → {short_date(dates[-1])}" if dates else "—"
-    badge_period = f"{short_date(dates[0])} - {short_date(dates[-1])}".replace(" ", "%20") if dates else "%20"
+    badge_period = f"{short_date(dates[0])}%20to%20{short_date(dates[-1])}".replace(" ", "%20") if dates else "n%2Fa"
 
     top = sorted(rows, key=lambda r: (-r["mentions"], r["telegram_id"]))[:15]
     top_rows = "\n".join(
