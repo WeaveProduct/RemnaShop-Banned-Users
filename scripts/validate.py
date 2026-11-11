@@ -20,6 +20,13 @@ with open("telegram_ids.txt", encoding="utf-8") as f:
 if rows != txt:
     errors.append("telegram_ids.txt out of sync")
 
+with open("telegram_ids_plain.txt", encoding="utf-8") as f:
+    plain = [line for line in f.read().splitlines() if line]
+if rows != plain:
+    errors.append("telegram_ids_plain.txt out of sync")
+if any("#" in line or not line.isdigit() for line in plain):
+    errors.append("telegram_ids_plain.txt contains comments or non-numeric lines")
+
 with open("banned_users.csv", encoding="utf-8-sig") as f:
     detailed = list(csv.DictReader(f))
 if [r["telegram_id"] for r in detailed] != rows:

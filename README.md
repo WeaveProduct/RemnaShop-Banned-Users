@@ -10,7 +10,7 @@
 [![Period](https://img.shields.io/badge/Aug%202026%20to%20Nov%202026-555?style=for-the-badge)](data/banned_users.json)
 [![License](https://img.shields.io/badge/License-MIT-black?style=for-the-badge)](LICENSE)
 
-[**CSV**](telegram_ids.csv) · [Blacklist TXT](telegram_ids.txt) · [Расширенная таблица](banned_users.csv) · [JSON](data/banned_users.json)
+[**CSV**](telegram_ids.csv) · [Plain TXT](telegram_ids_plain.txt) · [Blacklist TXT](telegram_ids.txt) · [Расширенная таблица](banned_users.csv) · [JSON](data/banned_users.json)
 
 </div>
 
@@ -23,17 +23,17 @@
 | Файл | Назначение |
 |---|---|
 | **[`telegram_ids.csv`](telegram_ids.csv)** | Главное. Одна колонка `telegram_id`, 593 строки. Импорт куда угодно. |
+| **[`telegram_ids_plain.txt`](telegram_ids_plain.txt)** | Голый список: только цифры, по одной на строку. Без заголовка и без комментариев — для панелей, которые не переваривают ничего лишнего. |
 | **[`telegram_ids.txt`](telegram_ids.txt)** | Тот же список в формате Remnashop blacklist: `id # причина`. Дроп-ин для существующего реестра. |
 | **[`banned_users.csv`](banned_users.csv)** | Расширенная таблица: username, первое/последнее упоминание, число упоминаний, категория, источник причины. |
 | **[`data/banned_users.json`](data/banned_users.json)** | То же в JSON — для скриптов и ботов. |
 
 ```bash
-curl -sL https://raw.githubusercontent.com/Demyasha-An/RemnaShop-Banned-Users/main/telegram_ids.csv \
-  | head -5
+curl -sL https://raw.githubusercontent.com/Demyasha-An/RemnaShop-Banned-Users/main/telegram_ids_plain.txt \
+  | head -4
 ```
 
 ```
-telegram_id
 232953109
 274236436
 308418118
@@ -89,7 +89,7 @@ telegram_id
 <details>
 <summary><b>Remnawave / Remnashop</b></summary>
 
-Импорт блеклиста: вставьте содержимое `telegram_ids.txt` целиком. Если ваша версия панели умеет тянуть по URL — используйте raw-ссылку:
+Импорт блеклиста: вставьте содержимое `telegram_ids.txt` целиком. Если нужен голый список без комментариев — берите `telegram_ids_plain.txt`. Если ваша версия панели умеет тянуть по URL — используйте raw-ссылку:
 
 ```
 https://raw.githubusercontent.com/Demyasha-An/RemnaShop-Banned-Users/main/telegram_ids.txt
@@ -116,7 +116,7 @@ if user_id in banned:
 
 ```bash
 # только те ID, которых нет в этом реестре
-comm -23 <(sort -u мой_список.txt) <(tail -n +2 telegram_ids.csv | sort -u) > новые.txt
+comm -23 <(sort -u мой_список.txt) <(sort -u telegram_ids_plain.txt) > новые.txt
 ```
 </details>
 
@@ -167,7 +167,7 @@ python scripts/build.py "путь/к/messages.html" --out . --known bl.txt  # с
 python scripts/render_readme.py
 python scripts/validate.py
 ```
-`scripts/build.py` детерминированный: одинаковый экспорт всегда даёт одинаковые файлы. CI проверяет, что `telegram_ids.csv`, `telegram_ids.txt` и `banned_users.csv` не разъехались.
+`scripts/build.py` детерминированный: одинаковый экспорт всегда даёт одинаковые файлы. CI проверяет, что `telegram_ids.csv`, `telegram_ids_plain.txt`, `telegram_ids.txt` и `banned_users.csv` не разъехались.
 
 ## Лицензия
 

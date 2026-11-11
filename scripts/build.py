@@ -281,6 +281,12 @@ def build(html_path: Path, out: Path, known: set[int] | None = None) -> dict:
         for r in rows:
             w.writerow([r["telegram_id"]])
 
+    # bare list: one id per line, no header, no comments — for panels that
+    # reject anything but plain numbers
+    with (out / "telegram_ids_plain.txt").open("w", encoding="utf-8", newline="\n") as f:
+        for r in rows:
+            f.write(f"{r['telegram_id']}\n")
+
     with (out / "telegram_ids.txt").open("w", encoding="utf-8", newline="\n") as f:
         for r in rows:
             f.write(f"{r['telegram_id']} # {r['reason'].replace(chr(10), ' ')}\n")
